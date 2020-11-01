@@ -13,7 +13,7 @@ public class InsuranceCompany {
 	@Column(name="insurance_company_id")
 	private long insuranceCompanyId;
 	
-	@Column(name="name")
+	@Column(name="company_name")
 	private String companyName;
 	
 	@Column(name="phone_number")
