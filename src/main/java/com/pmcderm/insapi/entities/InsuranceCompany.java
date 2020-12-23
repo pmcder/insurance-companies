@@ -21,6 +21,9 @@ public class InsuranceCompany {
 	
 	@Column(name="website")
 	private String website;
+	
+	@Column(name="phone_comments")
+	private String phoneComments;
 
 	public long getInsuranceCompanyId() {
 		return insuranceCompanyId;
@@ -54,11 +57,21 @@ public class InsuranceCompany {
 		this.website = website;
 	}
 
+	public String getPhoneComments() {
+		return phoneComments;
+	}
+
+	public void setPhoneComments(String phoneComments) {
+		this.phoneComments = phoneComments;
+	}
+
 	@Override
 	public String toString() {
 		return "InsuranceCompany [insuranceCompanyId=" + insuranceCompanyId + ", companyName=" + companyName
-				+ ", phoneNumber=" + phoneNumber + ", website=" + website + "]";
+				+ ", phoneNumber=" + phoneNumber + ", website=" + website + ", phoneComments=" + phoneComments + "]";
 	}
+
+	
 	
 	
 	
