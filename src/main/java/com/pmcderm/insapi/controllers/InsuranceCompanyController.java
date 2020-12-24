@@ -31,7 +31,7 @@ public class InsuranceCompanyController {
 		return this.insuranceCompanyService.findCompanyByName(companyName);
 	}
 	
-	@CrossOrigin(origins = "https://obscure-hollows-69207.herokuapp.com/api/companies")
+	@CrossOrigin(origins = "https://tasteful-railway.surge.sh")
 	@GetMapping("/companies")
 	public List<InsuranceCompany> findAll(){
 		return this.insuranceCompanyService.findAll();
