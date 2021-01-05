@@ -36,7 +36,7 @@ public class InsuranceCompanyController {
 		return this.insuranceCompanyService.findCompanyByName(companyName);
 	}
 	
-	@CrossOrigin(origins = "pmcderm.io")
+	@CrossOrigin(origins = "http://pmcderm.io")
 	@GetMapping("/companies")
 	public List<InsuranceCompany> findAll(){
 		logger.info("accessed at: "+LocalDate.now());
