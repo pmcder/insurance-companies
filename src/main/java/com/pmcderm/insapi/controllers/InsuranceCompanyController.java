@@ -1,7 +1,10 @@
 package com.pmcderm.insapi.controllers;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -21,6 +24,8 @@ public class InsuranceCompanyController {
 	
 	InsuranceCompanyService insuranceCompanyService;
 	
+	private static final Logger logger = LogManager.getLogger(InsuranceCompanyController.class); 
+	
 	@Autowired
 	public InsuranceCompanyController(InsuranceCompanyService insuranceCompanyService) {
 		this.insuranceCompanyService = insuranceCompanyService;
@@ -31,9 +36,10 @@ public class InsuranceCompanyController {
 		return this.insuranceCompanyService.findCompanyByName(companyName);
 	}
 	
-	@CrossOrigin(origins = "https://smooth-reading.surge.sh")
+	@CrossOrigin(origins = "pmcderm.io")
 	@GetMapping("/companies")
 	public List<InsuranceCompany> findAll(){
+		logger.info("accessed at: "+LocalDate.now());
 		return this.insuranceCompanyService.findAll();
 	}
 	

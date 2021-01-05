@@ -24,6 +24,22 @@ public class InsuranceCompany {
 	
 	@Column(name="phone_comments")
 	private String phoneComments;
+	
+	
+	
+	public InsuranceCompany() {
+		
+	}
+
+	public InsuranceCompany(long insuranceCompanyId, String companyName, String phoneNumber, String website,
+			String phoneComments) {
+		super();
+		this.insuranceCompanyId = insuranceCompanyId;
+		this.companyName = companyName;
+		this.phoneNumber = phoneNumber;
+		this.website = website;
+		this.phoneComments = phoneComments;
+	}
 
 	public long getInsuranceCompanyId() {
 		return insuranceCompanyId;
