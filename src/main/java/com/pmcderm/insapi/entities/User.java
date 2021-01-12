@@ -46,6 +46,8 @@ public class User {
 	
    
 
+
+
 	public User(long userId, String userName, String password, String firstName, String lastName, Role role) {
 		super();
 		UserId = userId;
@@ -100,6 +102,13 @@ public class User {
 		this.lastName = lastName;
 	}
 	
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
 	
 
 }
