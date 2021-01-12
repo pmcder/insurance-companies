@@ -1,4 +1,4 @@
-###About
+### About
 
 This project is the back end for my insurance company lookup tool. 
 To view the tool on my personal website [click here](http://pmcderm.io)
