@@ -2,7 +2,9 @@
 
 This project is the back end for my insurance company lookup tool. 
 To view the tool on my personal website [click here](http://pmcderm.io)
-and navigate to Insurance Company Lookup
+and navigate to Insurance Company Lookup. 
+Although the database is simple, I used this application to deepen my knowledge of Spring,
+Spring Security, and JWT. 
 
 ### Building
 
@@ -16,7 +18,7 @@ cd into ins-api
 
 mvn clean package 
 
-### running
+### Running
 
 to use the database url in application.properties you can run with: 
 
