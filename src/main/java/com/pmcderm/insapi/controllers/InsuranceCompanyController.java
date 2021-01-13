@@ -3,6 +3,9 @@ package com.pmcderm.insapi.controllers;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
+import javax.validation.Valid;
+
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,9 +16,12 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.pmcderm.insapi.dto.CompanyDto;
 import com.pmcderm.insapi.entities.InsuranceCompany;
 import com.pmcderm.insapi.services.InsuranceCompanyService;
 
@@ -45,10 +51,9 @@ public class InsuranceCompanyController {
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@PostMapping(value = "/addCompany", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-	public ResponseEntity<Void> save(InsuranceCompany insuranceCompany){
-	this.insuranceCompanyService.save(insuranceCompany);
-	return new ResponseEntity<>(HttpStatus.OK);
+	@PostMapping(value = "/addCompany")
+	public HttpStatus saveCompany(@RequestBody @Valid CompanyDto companyDto){
+		this.insuranceCompanyService.addCompany(companyDto);
+		return HttpStatus.CREATED;
 	}
-	
 }

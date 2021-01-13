@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.pmcderm.insapi.dto.CompanyDto;
 import com.pmcderm.insapi.entities.InsuranceCompany;
 import com.pmcderm.insapi.repositories.InsuranceCompanyRepository;
 
@@ -25,10 +27,17 @@ public class InsuranceCompanyService {
 		return (List<InsuranceCompany>) this.insuranceCompanyRepository.findAll();
 	}
 	
-	public void save(InsuranceCompany insuranceCompany) {
+	public void addCompany(CompanyDto companyDto) {
+		InsuranceCompany insuranceCompany = new InsuranceCompany();
+		insuranceCompany.setInsuranceCompanyId(companyDto.getInsuranceCompanyId());
+		insuranceCompany.setCompanyName(companyDto.getCompanyName());
+		insuranceCompany.setPhoneNumber(companyDto.getPhoneNumber());
+		insuranceCompany.setWebsite(companyDto.getWebsite());
+		insuranceCompany.setPhoneComments(companyDto.getPhoneComments());
 		this.insuranceCompanyRepository.save(insuranceCompany);
 	}
 	
-
- 
+	public void save(InsuranceCompany insuranceCompany) {
+		this.insuranceCompanyRepository.save(insuranceCompany);
+	}
 }
