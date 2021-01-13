@@ -43,15 +43,16 @@ public class InsuranceCompanyController {
 		return this.insuranceCompanyService.findCompanyByName(companyName);
 	}
 	
-	@CrossOrigin(origins = "http://pmcderm.io")
+	@CrossOrigin(origins="http://pmcderm.io")
 	@GetMapping("/companies")
 	public List<InsuranceCompany> findAll(){
 		logger.info("accessed at: "+LocalDate.now());
 		return this.insuranceCompanyService.findAll();
 	}
 	
+	@CrossOrigin(origins = "http://localhost:8080")
+	@PostMapping("/addCompany")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	@PostMapping(value = "/addCompany")
 	public HttpStatus saveCompany(@RequestBody @Valid CompanyDto companyDto){
 		this.insuranceCompanyService.addCompany(companyDto);
 		return HttpStatus.CREATED;

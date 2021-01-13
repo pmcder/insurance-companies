@@ -25,11 +25,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	InsAppUserDetailsService insAppUserDetailsService;
 	
 	@Autowired
-	RoleRepository RoleRepository;
+	RoleRepository roleRepository;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
+			
 			.authorizeRequests()
 			.antMatchers(HttpMethod.GET).permitAll()
 			.antMatchers("/users/signin").permitAll()
@@ -37,6 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.anyRequest().authenticated();
 		
 	    http.csrf().disable();
+	    http.cors();
 
 	    // No session will be created or used by spring security
 	    http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
@@ -54,4 +56,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(12);
     }
+    
+   
 }
